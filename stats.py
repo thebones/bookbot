@@ -5,7 +5,6 @@ def get_num_words(text_contents):
 
 def get_num_letters(text_contents):
     text_contents = text_contents.lower()
-    print(text_contents)
 
     letter_count = {}
 
@@ -16,3 +15,17 @@ def get_num_letters(text_contents):
             letter_count[letter] = 1
 
     return letter_count
+
+def sort_on(items):
+    return items["num"]
+
+def sort_chars(letter_count):
+    sorted_dict = []
+
+    for char in letter_count:
+        if char.isalpha():
+            sorted_dict.append({"char" : char, "num" : letter_count[char]})
+
+    sorted_dict.sort(reverse=True, key=sort_on)
+
+    return sorted_dict
